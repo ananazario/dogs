@@ -1,5 +1,6 @@
 import React from 'react'
 import UserPost from './endpoints/UserPost'
+import TokenPost from './endpoints/TokenPost'
 
 const Api = () => {
     return (
