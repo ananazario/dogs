@@ -6,48 +6,46 @@ const UserPost = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    function handleSubmit(event) {
+    const handleSubmit = (event) => {
         event.preventDefault()
-        fetch('https://dogsapi.origamid.dev/json/api/user', {
+
+        fetch('https://dogsapi.origamid.dev/json/jwt-auth/v1/token', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                username,
+                username, 
                 email,
-                password,
-            }),
-        }).then((response) => {
-            console.log(response);
-            return response.json();
-        }).then((json) => {
-            console.log(json);
-            return json;
+                password
+            })
+        }).then(response => {
+            return response.json()
+        }).then(json => {
+            return json
         })
     }
 
     return (
         <form onSubmit={handleSubmit}>
             <input 
-                type="text" 
+                type='text'
                 placeholder='username'
                 value={username}
-                onChange={({ target }) => setUsername(target.value)}
+                onChange={({target}) => setUsername(target.value)}
             />
             <input 
-                type="text" 
+                type='text'
                 placeholder='email'
                 value={email}
-                onChange={({ target }) => setEmail(target.value)}
+                onChange={({target}) => setEmail(target.value)}
             />
             <input 
-                type="text" 
+                type='text'
                 placeholder='password'
                 value={password}
-                onChange={({ target }) => setPassword(target.value)}
+                onChange={({target}) => setPassword(target.value)}
             />
-            <button>Enviar</button>
         </form>
     )
 }

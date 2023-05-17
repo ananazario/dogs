@@ -1,9 +1,9 @@
-import React from 'react';
+import { useState } from 'react';
 
 const TokenPost = () => {
-  const [username, setUsername] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [token, setToken] = React.useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [token, setToken] = useState('');
 
   function handleSubmit(event) {
     event.preventDefault();
